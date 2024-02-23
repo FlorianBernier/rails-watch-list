@@ -1,0 +1,18 @@
+<h1>Bookmarks#new</h1>
+<p>Find me in app/views/bookmarks/new.html.erb</p>
+
+<h1>New Bookmark</h1>
+
+<%= form_with model: [@list, @bookmark], url: list_bookmarks_path(@list) do |form| %>
+  <div>
+    <%= form.label :movie_id %>
+    <%= form.select :movie_id, options_for_select(@movies.map{ |m| [m.title, m.id] }) %>
+  </div>
+  <div>
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to 'Back', list_path(@list) %>
